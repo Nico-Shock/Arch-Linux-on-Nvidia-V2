@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arch Linux Installation Guide</title>
+  <style>
+    /* Modern Midnight Theme */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header, footer {
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    footer {
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      padding-top: 20px;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: left;
+    }
+    th {
+      background-color: #1e1e1e;
+    }
+    /* Checkliste */
+    .checkbox-list {
+      list-style: none;
+      padding: 0;
+    }
+    .checkbox-list li {
+      background-color: #1e1e1e;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-list input[type="checkbox"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    /* Codeblöcke */
+    pre, code {
+      background-color: #1e1e1e;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Arch Linux Installation Guide</h1>
+      <p>Bitte lese und verstehe alle Schritte, bevor du beginnst!</p>
+    </header>
+
+    <!-- Schritt-für-Schritt Tabelle -->
+    <section id="steps-table">
+      <h2>Installation Steps</h2>
+      <table>
+        <tr>
+          <th>Step</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><a href="#set-up-keyboard-layout">Set up keyboard layout</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="#check-if-booted-to-uefi">Check if booted to UEFI</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="#check-internet-connection">Check internet connection</a></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="#connect-to-wifi">Connect to Wifi (if used)</a></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="#get-disk-information">Get disk information</a></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><a href="#partition-the-disk">Partition the disk</a></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="#format-the-partitions">Format partitions</a></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><a href="#mount-partitions">Mount partitions</a></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><a href="#install-linux-base-system">Install Linux base system</a></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><a href="#access-root-system">Access root system</a></td>
+        </tr>
+        <!-- Weitere Schritte hier einfügen -->
+      </table>
+    </section>
+
+    <!-- Beispiel: Ein Abschnitt aus dem Guide -->
+    <section id="set-up-keyboard-layout">
+      <h2>Set Up Keyboard Layout</h2>
+      <p>Liste alle verfügbaren Tastaturlayouts auf:</p>
+      <pre><code>localectl list-keymaps</code></pre>
+      <p>Lade das gewünschte Layout (z. B. Deutsch):</p>
+      <pre><code>loadkeys de</code></pre>
+    </section>
+
+    <!-- Weitere Abschnitte des Guides können hier hinzugefügt werden ... -->
+
+    <!-- Checkliste am Seitenende -->
+    <section id="checklist">
+      <h2>Installation Checklist</h2>
+      <p>Markiere jeden Schritt als erledigt:</p>
+      <ul class="checkbox-list">
+        <li><label><input type="checkbox" id="step1"> Set up keyboard layout</label></li>
+        <li><label><input type="checkbox" id="step2"> Check if booted to UEFI</label></li>
+        <li><label><input type="checkbox" id="step3"> Check internet connection</label></li>
+        <li><label><input type="checkbox" id="step4"> Connect to Wifi (if used)</label></li>
+        <li><label><input type="checkbox" id="step5"> Get disk information</label></li>
+        <li><label><input type="checkbox" id="step6"> Partition the disk</label></li>
+        <li><label><input type="checkbox" id="step7"> Format partitions</label></li>
+        <li><label><input type="checkbox" id="step8"> Mount partitions</label></li>
+        <li><label><input type="checkbox" id="step9"> Install Linux base system</label></li>
+        <li><label><input type="checkbox" id="step10"> Access root system</label></li>
+        <li><label><input type="checkbox" id="step11"> Install requirements</label></li>
+        <li><label><input type="checkbox" id="step12"> Configure Arch system</label></li>
+        <li><label><input type="checkbox" id="step13"> Install bootloader</label></li>
+        <li><label><input type="checkbox" id="step14"> Install a desktop environment</label></li>
+        <li><label><input type="checkbox" id="step15"> Install recommended and required software</label></li>
+        <li><label><input type="checkbox" id="step16"> Install NVIDIA drivers</label></li>
+        <li><label><input type="checkbox" id="step17"> Reboot system</label></li>
+        <li><label><input type="checkbox" id="step18"> Change keyboard layout</label></li>
+        <li><label><input type="checkbox" id="step19"> Change timezone</label></li>
+        <li><label><input type="checkbox" id="step20"> Install CachyOS Repos</label></li>
+        <li><label><input type="checkbox" id="step21"> Install yay and paru</label></li>
+        <li><label><input type="checkbox" id="step22"> Install Chaotic-AUR Repos</label></li>
+        <li><label><input type="checkbox" id="step23"> Install CachyOS Kernel Manager & Other Things</label></li>
+        <li><label><input type="checkbox" id="step24"> Change Bootloader config</label></li>
+        <li><label><input type="checkbox" id="step25"> Install Open Nvidia Drivers</label></li>
+        <li><label><input type="checkbox" id="step26"> Patch Pacman</label></li>
+        <li><label><input type="checkbox" id="step27"> Make your system more stable</label></li>
+        <li><label><input type="checkbox" id="optional1"> Optional: Example for Gnome Theming</label></li>
+        <li><label><input type="checkbox" id="optional2"> Optional: Recommended for VMware</label></li>
+        <li><label><input type="checkbox" id="optional3"> Optional: Recommended for KVM</label></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Arch Linux Installation Guide</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript: Checklisten-Status speichern -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+      checkboxes.forEach(function(checkbox) {
+        // Lade gespeicherte Zustände aus localStorage
+        const storedValue = localStorage.getItem(checkbox.id);
+        if (storedValue === "true") {
+          checkbox.checked = true;
+        }
+        // Bei Änderung den Zustand speichern
+        checkbox.addEventListener("change", function() {
+          localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
