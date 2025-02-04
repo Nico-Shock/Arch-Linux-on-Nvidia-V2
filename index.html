@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,16 +51,12 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
     }
     nav li {
-      margin: 0;
+      margin-right: 15px;
     }
     nav li a {
       font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 4px;
-      background-color: #2d2d2d;
     }
     h1, h2, h3 {
       color: #ffffff;
@@ -68,31 +64,11 @@
     section {
       margin-bottom: 40px;
     }
-    .code-wrapper {
-      position: relative;
-      margin: 15px 0;
-    }
     pre, code {
       background-color: #1e1e1e;
       padding: 10px;
       border-radius: 4px;
       overflow-x: auto;
-      margin: 0;
-    }
-    .copy-btn {
-      position: absolute;
-      right: 5px;
-      top: 5px;
-      background: #bb86fc;
-      border: none;
-      color: #121212;
-      padding: 5px 10px;
-      border-radius: 3px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-    .copy-btn:hover {
-      background: #9a67ea;
     }
     table {
       width: 100%;
@@ -100,121 +76,77 @@
       margin: 20px 0;
     }
     th, td {
-      padding: 8px;
+      padding: 10px;
       border: 1px solid #333;
       text-align: left;
     }
     th {
       background-color: #1e1e1e;
     }
+    /* Checkliste */
+    .checkbox-list {
+      list-style: none;
+      padding: 0;
+    }
+    .checkbox-list li {
+      background-color: #1e1e1e;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-list input[type="checkbox"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Arch Linux Installation Guide</h1>
-    <p>Please read and understand all steps before starting.</p>
+    <p>Bitte lese und verstehe alle Schritte, bevor du beginnst.</p>
   </header>
 
   <div class="container">
+    <!-- Navigation: Tabelle der Inhalte -->
     <nav>
       <ul>
         <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#steps-table">Schritte</a></li>
         <li><a href="#set-up-keyboard-layout">Keyboard Layout</a></li>
         <li><a href="#check-if-booted-to-uefi">UEFI Check</a></li>
         <li><a href="#check-internet-connection">Internet Check</a></li>
-        <li><a href="#connect-to-wifi">Wifi</a></li>
+        <li><a href="#connect-to-wifi">WLAN</a></li>
         <li><a href="#get-disk-information">Disk Info</a></li>
         <li><a href="#partition-the-disk">Partition</a></li>
-        <li><a href="#format-the-partitions">Formatting</a></li>
-        <li><a href="#mount-partitions">Mounting</a></li>
-        <li><a href="#install-linux-base-system">Base Install</a></li>
+        <li><a href="#format-the-partitions">Formatierung</a></li>
+        <li><a href="#mount-partitions">Mounten</a></li>
+        <li><a href="#install-linux-base-system">Basisinstallation</a></li>
         <li><a href="#access-root-system">Chroot</a></li>
-        <li><a href="#install-requirements">Install Requirements</a></li>
-        <li><a href="#configure-arch-system">Configure System</a></li>
+        <li><a href="#install-requirements">Requirements installieren</a></li>
+        <li><a href="#configure-arch-system">System konfigurieren</a></li>
         <li><a href="#install-bootloader">Bootloader</a></li>
-        <li><a href="#install-desktop-environment">Desktop Environment</a></li>
-        <li><a href="#install-recommended">Recommended Software</a></li>
-        <li><a href="#install-nvidia-drivers">NVIDIA Drivers</a></li>
+        <li><a href="#install-desktop-environment">Desktop Umgebung</a></li>
+        <li><a href="#install-recommended">Empfohlene Software</a></li>
+        <li><a href="#install-nvidia-drivers">NVIDIA Treiber</a></li>
         <li><a href="#reboot-system">Reboot</a></li>
-        <li><a href="#change-keyboard-layout">Change Keyboard</a></li>
-        <li><a href="#change-timezone">Timezone</a></li>
+        <li><a href="#change-keyboard-layout">Keyboard ändern</a></li>
+        <li><a href="#change-timezone">Timezone ändern</a></li>
         <li><a href="#install-cachyos-repos">CachyOS Repos</a></li>
-        <li><a href="#install-yay-paru">yay & paru</a></li>
+        <li><a href="#install-yay-paru">yay &amp; paru</a></li>
         <li><a href="#install-chaotic-aur">Chaotic-AUR</a></li>
         <li><a href="#install-cachyos-kernel-manager">Kernel Manager</a></li>
-        <li><a href="#change-bootloaderconfig">Bootloader Config</a></li>
-        <li><a href="#install-open-nvidia">Open NVIDIA</a></li>
-        <li><a href="#patch-pacman">Patch Pacman</a></li>
-        <li><a href="#make-system-stable">Stabilize System</a></li>
-        <li><a href="#theming-gnome">Gnome Theming</a></li>
-        <li><a href="#vmware">VMware</a></li>
-        <li><a href="#kvm">KVM</a></li>
+        <li><a href="#change-bootloaderconfig">Bootloaderconfig</a></li>
+        <li><a href="#install-open-nvidia">Open Nvidia Treiber</a></li>
+        <li><a href="#patch-pacman">Pacman patchen</a></li>
+        <li><a href="#make-system-stable">System stabilisieren</a></li>
+        <li><a href="#theming-gnome">Gnome Theming (optional)</a></li>
+        <li><a href="#vmware">VMware (optional)</a></li>
+        <li><a href="#kvm">KVM (optional)</a></li>
       </ul>
     </nav>
-
-    <!-- Requirements Section -->
-    <section id="requirements">
-      <h2>Requirements</h2>
-      <ol>
-        <li><strong>PC/Laptop</strong></li>
-        <li><strong>UEFI Firmware</strong></li>
-        <li><strong>Disabled Secure Boot</strong></li>
-        <li>
-          <strong>A bootable USB stick with an ISO image</strong>
-          <ul>
-            <li>You can test the Arch Linux installation in a virtual machine.</li>
-            <li>Download the Arch Linux ISO <a href="https://archlinux.org/download/" target="_blank">here</a>.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Tools to create a bootable USB stick:</strong>
-          <ul>
-            <li><strong>Windows:</strong> Use <a href="https://rufus.ie/de/" target="_blank">Rufus</a>.</li>
-            <li><strong>macOS:</strong> Use <a href="https://www.balena.io/etcher/" target="_blank">Balena Etcher</a>.</li>
-            <li><strong>Linux:</strong> Use <a href="https://flathub.org/apps/details/org.kde.isoimagewriter" target="_blank">ISO Image Writer</a>.</li>
-            <li><strong>For all OSes:</strong> Install <a href="https://www.ventoy.net/en/index.html" target="_blank">Ventoy</a> and copy the ISO to the root of your USB drive.</li>
-          </ul>
-        </li>
-      </ol>
-      <p><strong>Please read and understand everything shown carefully before starting.</strong></p>
-    </section>
-
-    <!-- Content Sections (Markdown Content) -->
-    <section id="set-up-keyboard-layout">
-      <h2>Set Up Keyboard Layout</h2>
-      <div class="code-wrapper">
-        <pre><code>localectl list-keymaps</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>List all available keyboard layouts.</p>
-      <div class="code-wrapper">
-        <pre><code>loadkeys de</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>Load the selected keyboard layout (default is US).</p>
-    </section>
-
-    <!-- Remaining sections continue with the same pattern... -->
-
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Arch Linux Installation Guide</p>
-  </footer>
-
-  <script>
-    function copyCode(button) {
-      const code = button.previousElementSibling.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => {
-          button.textContent = 'Copy';
-        }, 2000);
-      });
-    }
-  </script>
-</body>
-</html>
 
     <!-- Abschnitt: Requirements -->
     <section id="requirements">
