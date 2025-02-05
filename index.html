@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arch Linux Installation Guide</title>
   <style>
-    /* Fluent Midnight Theme & Centered Container, modern und abgerundet */
     body {
-      background-color: #121212; /* klassischer dunkler Hintergrund */
+      background-color: #121212;
       color: #e0e0e0;
       font-family: 'Segoe UI', sans-serif;
-      font-size: 17px; /* Schrift um 1 Pixel kleiner */
+      font-size: 17px;
       margin: 0;
       padding: 20px;
       display: flex;
@@ -36,7 +35,6 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Kompakte Tabelle */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -50,7 +48,6 @@
     th {
       background-color: #1e1e1e;
     }
-    /* Codeblock mit Copy-Button */
     .code-wrapper {
       position: relative;
       margin-bottom: 1em;
@@ -74,7 +71,6 @@
       color: #e0e0e0;
       border-radius: 5px;
     }
-    /* Section Styling */
     section {
       margin-bottom: 40px;
     }
@@ -82,13 +78,10 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <header>
       <h1>Arch Linux Installation Guide</h1>
       <p><em>Please read and understand everything carefully before starting.</em></p>
     </header>
-    
-    <!-- Kompakte Tabelle der 28 Schritte -->
     <section id="steps-table">
       <h2>Installation Steps</h2>
       <table>
@@ -210,16 +203,10 @@
         </tr>
         <tr>
           <td>Optional</td>
-          <td>
-            <a href="#theming-gnome">Example for Gnome theming</a> |
-            <a href="#vmware">Recommended for VMware</a> |
-            <a href="#kvm">Recommended for KVM</a>
-          </td>
+          <td><a href="#virtualization-tools">Optional: Virtualization Tools</a></td>
         </tr>
       </table>
     </section>
-    
-    <!-- 1. Set Up Keyboard Layout -->
     <section id="set-up-keyboard-layout">
       <h2>1. Set Up Keyboard Layout</h2>
       <div class="code-wrapper">
@@ -233,8 +220,6 @@
       </div>
       <p>Load the selected keyboard layout (default is US).</p>
     </section>
-    
-    <!-- 2. Check if Booted to UEFI -->
     <section id="check-if-booted-to-uefi">
       <h2>2. Check if Booted to UEFI</h2>
       <div class="code-wrapper">
@@ -243,8 +228,6 @@
       </div>
       <p>If a lot of unknown text appears, you have booted into UEFI mode.</p>
     </section>
-    
-    <!-- 3. Check Internet Connection -->
     <section id="check-internet-connection">
       <h2>3. Check Internet Connection</h2>
       <div class="code-wrapper">
@@ -253,8 +236,6 @@
       </div>
       <p>This command pings a website to verify your internet connection.</p>
     </section>
-    
-    <!-- 4. Connect to Wifi (if used) -->
     <section id="connect-to-wifi">
       <h2>4. Connect to Wifi (if used)</h2>
       <div class="code-wrapper">
@@ -278,8 +259,6 @@
       </div>
       <p>Replace <code>Wifi-Name</code> with your actual WiFi network name and enter the password.</p>
     </section>
-    
-    <!-- 5. Get Disk Information -->
     <section id="get-disk-information">
       <h2>5. Get Disk Information</h2>
       <div class="code-wrapper">
@@ -288,8 +267,6 @@
       </div>
       <p>This command displays information about your installed disks.</p>
     </section>
-    
-    <!-- 6. Partition the Disk -->
     <section id="partition-the-disk">
       <h2>6. Partition the Disk</h2>
       <div class="code-wrapper">
@@ -308,8 +285,6 @@
       <p><em>A separate root partition is optional; it adds security but is not mandatory.</em></p>
       <p><em>A swap partition is optional; it serves as backup memory when RAM is full.</em></p>
     </section>
-    
-    <!-- 7. Format the Partitions -->
     <section id="format-the-partitions">
       <h2>7. Format the Partitions</h2>
       <div class="code-wrapper">
@@ -338,8 +313,6 @@
       </div>
       <p>Format the home partition to ext4.</p>
     </section>
-    
-    <!-- 8. Mount the Partitions to Install Linux Base System -->
     <section id="mount-partitions">
       <h2>8. Mount the Partitions to Install Linux Base System</h2>
       <div class="code-wrapper">
@@ -364,8 +337,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Mount your home partition.</p>
     </section>
-    
-    <!-- 9. Make Downloads Faster -->
     <section id="make-downloads-faster">
       <h2>9. Make Downloads Faster</h2>
       <div class="code-wrapper">
@@ -374,8 +345,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Enable parallel downloads by uncommenting the respective line (if unsure, leave the value at 5).</p>
     </section>
-    
-    <!-- 10. Install Linux Base System -->
     <section id="install-linux-base-system">
       <h2>10. Install Linux Base System</h2>
       <div class="code-wrapper">
@@ -389,8 +358,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Generate the <code>fstab</code> file.</p>
     </section>
-    
-    <!-- 11. Access the Root System -->
     <section id="access-root-system">
       <h2>11. Access the Root System</h2>
       <div class="code-wrapper">
@@ -399,8 +366,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Switch to the shell of the installed system.</p>
     </section>
-    
-    <!-- 12. Install Requirements -->
     <section id="install-requirements">
       <h2>12. Install Requirements</h2>
       <div class="code-wrapper">
@@ -414,8 +379,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Enable the NetworkManager service.</p>
     </section>
-    
-    <!-- 13. Configure Arch System -->
     <section id="configure-arch-system">
       <h2>13. Configure Arch System</h2>
       <div class="code-wrapper">
@@ -489,8 +452,6 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Uncomment <code>%wheel ALL=(ALL) ALL</code> (optionally add <code>Defaults rootpw</code>).</p>
     </section>
-    
-    <!-- 14. Install Bootloader -->
     <section id="install-bootloader">
       <h2>14. Install Bootloader</h2>
       <div class="code-wrapper">
@@ -522,8 +483,6 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>Ensure you specify the correct root partition (e.g., <code>/dev/nvme0n1p3</code>).</p>
     </section>
-    
-    <!-- 15. Install a Desktop Environment -->
     <section id="install-desktop-environment">
       <h2>15. Install a Desktop Environment</h2>
       <div class="code-wrapper">
@@ -537,8 +496,6 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>If you prefer another desktop environment (or window manager), the installation steps will differ.</p>
     </section>
-    
-    <!-- 16. Install Recommended and Required Software -->
     <section id="install-recommended">
       <h2>16. Install Recommended and Required Software</h2>
       <h3>Required Software</h3>
@@ -568,8 +525,6 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>If SSH is needed, allow it with this command.</p>
     </section>
-    
-    <!-- 17. Install NVIDIA Drivers -->
     <section id="install-nvidia-drivers">
       <h2>17. Install NVIDIA Drivers (Required to change the NVIDIA driver later)</h2>
       <div class="code-wrapper">
@@ -607,8 +562,6 @@ Exec=/usr/bin/mkinitcpio -P</code></pre>
       </div>
       <p>This ensures the correct NVIDIA modules are loaded and the <code>mkinitcpio</code> image updates automatically.</p>
     </section>
-    
-    <!-- 18. Reboot System -->
     <section id="reboot-system">
       <h2>18. Reboot System</h2>
       <div class="code-wrapper">
@@ -618,8 +571,6 @@ reboot</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 19. Change Keyboard Layout -->
     <section id="change-keyboard-layout">
       <h2>19. Change Keyboard Layout</h2>
       <ul>
@@ -628,8 +579,6 @@ reboot</code></pre>
         <li>Choose your desired layout and remove the others.</li>
       </ul>
     </section>
-    
-    <!-- 20. Change Timezone -->
     <section id="change-timezone">
       <h2>20. Change Timezone</h2>
       <div class="code-wrapper">
@@ -638,8 +587,6 @@ reboot</code></pre>
       </div>
       <p>Select your correct timezone.</p>
     </section>
-    
-    <!-- 21. Install CachyOS Repos -->
     <section id="install-cachyos-repos">
       <h2>21. Install CachyOS Repos</h2>
       <div class="code-wrapper">
@@ -651,8 +598,6 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 22. Install yay and paru -->
     <section id="install-yay-paru">
       <h2>22. Install yay and paru</h2>
       <div class="code-wrapper">
@@ -664,8 +609,6 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 23. Install Chaotic-AUR Repos -->
     <section id="install-chaotic-aur">
       <h2>23. Install Chaotic-AUR Repos</h2>
       <div class="code-wrapper">
@@ -698,8 +641,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 24. Install CachyOS Kernel Manager & Other Things -->
     <section id="install-cachyos-kernel-manager">
       <h2>24. Install CachyOS Kernel Manager &amp; Other Things</h2>
       <div class="code-wrapper">
@@ -708,8 +649,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
       <p><strong>Launch the CachyOS Kernel Manager</strong>: Select "Configure", choose the "RC - Release Candidate" option, then click "Build Kernel". (If you do not have the latest RC kernel (<code>linux-cachyos-rc</code>) or prefer a stable kernel (<code>linux-cachyos</code>), use the appropriate one.) Proceed with the installation.</p>
     </section>
-    
-    <!-- 25. Install Open Nvidia Driver (Recommended) -->
     <section id="install-open-nvidia">
       <h2>25. Install Open Nvidia Driver (Recommended)</h2>
       <div class="code-wrapper">
@@ -717,8 +656,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 26. Change Bootloader Configuration -->
     <section id="change-bootloaderconfig">
       <h2>26. Change Bootloader Configuration</h2>
       <div class="code-wrapper">
@@ -732,8 +669,6 @@ initrd /initramfs-linux-cachyos.img</code></pre>
       </div>
       <p>Adjust the configuration to boot into the new kernel.</p>
     </section>
-    
-    <!-- 27. Patch Pacman -->
     <section id="patch-pacman">
       <h2>27. Patch Pacman</h2>
       <div class="code-wrapper">
@@ -741,8 +676,6 @@ initrd /initramfs-linux-cachyos.img</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
-    
-    <!-- 28. Make Your System More Stable -->
     <section id="make-system-stable">
       <h2>28. Make Your System More Stable</h2>
       <div class="code-wrapper">
@@ -760,72 +693,10 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
       </div>
       <p>If something breaks, this will reinstall the CachyOS repos and should fix pacman errors.</p>
     </section>
-    
-    <!-- Optional: Theming for Gnome -->
-    <section id="theming-gnome">
-      <h2>Optional: Example for Gnome Theming</h2>
-      <h3>Gnome Extensions:</h3>
-      <ul>
-        <li>Extension List</li>
-        <li>Application and KStatusNotifierItem Support</li>
-        <li>Blur My Shell</li>
-        <li>Just Perfection</li>
-        <li>Dash to Dock</li>
-        <li>Arc Menu</li>
-        <li>Coverflow</li>
-        <li>Impatience</li>
-        <li>Gnome 4x UI Improvements</li>
-        <li>Caffeine</li>
-        <li>Tiling Shell</li>
-        <li>Compact Topbar</li>
-        <li>Magic Lamp Effect</li>
-        <li>Open Bar</li>
-        <li>Highlight Focus</li>
-        <li>User Themes</li>
-        <li>System Monitor</li>
-      </ul>
-      <p>For OpenBar pre-config, download <a href="https://github.com/Nico-Shock/sdfgdfg/releases/download/download/Purple" target="_blank">this file</a> and import it.</p>
-      <div class="code-wrapper">
-        <pre><code>flatpak install flathub com.mattjakeman.ExtensionManager</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <div class="code-wrapper">
-        <pre><code>yay -S candy-icons-git</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <div class="code-wrapper">
-        <pre><code>yay -S ttf-dejavu-sans-mono-powerline-git</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>Then, in your terminal settings, select a theme of your choice (e.g., <code>DejaVu Sans Mono Bold 12</code>).</p>
-      <p>You can also use Gnome Tweaks to change fonts and later switch only the shell theme (e.g., to WhiteSur).</p>
-      <div class="code-wrapper">
-        <pre><code>git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-cd WhiteSur-gtk-theme
-./install.sh -l
-cd ..
-sudo rm -r WhiteSur-gtk-theme</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <div class="code-wrapper">
-        <pre><code>sudo pacman -S zsh</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <div class="code-wrapper">
-        <pre><code>sudo nano ~/.zshrc</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>You may choose a theme like <a href="https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/xiong-chiamiov-plus.zsh-theme" target="_blank">xiong-chiamiov-plus</a> or <a href="https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/bira.zsh-theme" target="_blank">bira</a>. Many prefer <a href="https://github.com/romkatv/powerlevel10k" target="_blank">powerlevel10k</a>.</p>
-      <div class="code-wrapper">
-        <pre><code>chsh -s $(which zsh)</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>This makes zsh your default shell.</p>
-    </section>
-    
-    <!-- Optional: Recommended for VMware -->
-    <section id="vmware">
-      <h2>Optional: Recommended for VMware</h2>
+    <section id="virtualization-tools">
+      <h2>Optional: Virtualization Tools</h2>
+      <p>This section includes tools for running virtualized environments.</p>
+      <h3>VMware Tools</h3>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S open-vm-tools xf86-video-vmware xf86-input-vmmouse</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -835,11 +706,7 @@ sudo rm -r WhiteSur-gtk-theme</code></pre>
 sudo systemctl start vmtoolsd</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-    </section>
-    
-    <!-- Optional: Recommended for KVM -->
-    <section id="kvm">
-      <h2>Optional: Recommended for KVM</h2>
+      <h3>Spice Tools (for KVM)</h3>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S spice-vdagent</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -849,24 +716,27 @@ sudo systemctl start vmtoolsd</code></pre>
 sudo systemctl start spice-vagentd</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p><em>The theming steps are just examples; you can customize Gnome infinitely.</em></p>
+      <h3>VirtualBox Tools</h3>
+      <div class="code-wrapper">
+        <pre><code>sudo pacman -S virtualbox virtualbox-host-modules-arch</code></pre>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      </div>
+      <p>After installation, load the VirtualBox kernel modules (if not automatically loaded):</p>
+      <div class="code-wrapper">
+        <pre><code>sudo modprobe vboxdrv</code></pre>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      </div>
     </section>
-    
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Arch Linux Installation Guide</p>
     </footer>
   </div>
-  
-  <!-- JavaScript: Copy Button Functionality -->
   <script>
     function copyCode(btn) {
       const codeText = btn.previousElementSibling.innerText;
       navigator.clipboard.writeText(codeText).then(() => {
         btn.innerText = "Copied!";
-        setTimeout(() => {
-          btn.innerText = "Copy";
-        }, 2000);
+        setTimeout(() => { btn.innerText = "Copy"; }, 2000);
       });
     }
   </script>
