@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arch Linux Installation Guide</title>
   <style>
+    /* Fluent Midnight Theme & Centered Container, modern und abgerundet */
     body {
       background-color: #121212;
       color: #e0e0e0;
       font-family: 'Segoe UI', sans-serif;
-      font-size: 17px;
+      font-size: 17px; /* Basic Font Size */
       margin: 0;
       padding: 20px;
       display: flex;
@@ -35,6 +36,7 @@
     a:hover {
       text-decoration: underline;
     }
+    /* Compact Table */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -48,6 +50,7 @@
     th {
       background-color: #1e1e1e;
     }
+    /* Code block with copy button */
     .code-wrapper {
       position: relative;
       margin-bottom: 1em;
@@ -71,6 +74,7 @@
       color: #e0e0e0;
       border-radius: 5px;
     }
+    /* Section styling */
     section {
       margin-bottom: 40px;
     }
@@ -78,10 +82,13 @@
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <header>
       <h1>Arch Linux Installation Guide</h1>
       <p><em>Please read and understand everything carefully before starting.</em></p>
     </header>
+    
+    <!-- Compact table of the 28 steps -->
     <section id="steps-table">
       <h2>Installation Steps</h2>
       <table>
@@ -207,6 +214,9 @@
         </tr>
       </table>
     </section>
+    
+    <!-- The individual steps 1 to 28 remain unchanged as before – the content stays the same here -->
+    <!-- Step 1: Set up keyboard layout -->
     <section id="set-up-keyboard-layout">
       <h2>1. Set Up Keyboard Layout</h2>
       <div class="code-wrapper">
@@ -220,6 +230,8 @@
       </div>
       <p>Load the selected keyboard layout (default is US).</p>
     </section>
+    
+    <!-- Step 2: Check if Booted to UEFI -->
     <section id="check-if-booted-to-uefi">
       <h2>2. Check if Booted to UEFI</h2>
       <div class="code-wrapper">
@@ -228,6 +240,8 @@
       </div>
       <p>If a lot of unknown text appears, you have booted into UEFI mode.</p>
     </section>
+    
+    <!-- Step 3: Check Internet Connection -->
     <section id="check-internet-connection">
       <h2>3. Check Internet Connection</h2>
       <div class="code-wrapper">
@@ -236,6 +250,8 @@
       </div>
       <p>This command pings a website to verify your internet connection.</p>
     </section>
+    
+    <!-- Step 4: Connect to Wifi (if used) -->
     <section id="connect-to-wifi">
       <h2>4. Connect to Wifi (if used)</h2>
       <div class="code-wrapper">
@@ -259,6 +275,8 @@
       </div>
       <p>Replace <code>Wifi-Name</code> with your actual WiFi network name and enter the password.</p>
     </section>
+    
+    <!-- Step 5: Get Disk Information -->
     <section id="get-disk-information">
       <h2>5. Get Disk Information</h2>
       <div class="code-wrapper">
@@ -267,6 +285,8 @@
       </div>
       <p>This command displays information about your installed disks.</p>
     </section>
+    
+    <!-- Step 6: Partition the Disk -->
     <section id="partition-the-disk">
       <h2>6. Partition the Disk</h2>
       <div class="code-wrapper">
@@ -285,6 +305,8 @@
       <p><em>A separate root partition is optional; it adds security but is not mandatory.</em></p>
       <p><em>A swap partition is optional; it serves as backup memory when RAM is full.</em></p>
     </section>
+    
+    <!-- Step 7: Format the Partitions -->
     <section id="format-the-partitions">
       <h2>7. Format the Partitions</h2>
       <div class="code-wrapper">
@@ -313,6 +335,8 @@
       </div>
       <p>Format the home partition to ext4.</p>
     </section>
+    
+    <!-- Step 8: Mount the Partitions to Install Linux Base System -->
     <section id="mount-partitions">
       <h2>8. Mount the Partitions to Install Linux Base System</h2>
       <div class="code-wrapper">
@@ -337,6 +361,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Mount your home partition.</p>
     </section>
+    
+    <!-- Step 9: Make Downloads Faster -->
     <section id="make-downloads-faster">
       <h2>9. Make Downloads Faster</h2>
       <div class="code-wrapper">
@@ -345,6 +371,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Enable parallel downloads by uncommenting the respective line (if unsure, leave the value at 5).</p>
     </section>
+    
+    <!-- Step 10: Install Linux Base System -->
     <section id="install-linux-base-system">
       <h2>10. Install Linux Base System</h2>
       <div class="code-wrapper">
@@ -358,6 +386,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Generate the <code>fstab</code> file.</p>
     </section>
+    
+    <!-- Step 11: Access the Root System -->
     <section id="access-root-system">
       <h2>11. Access the Root System</h2>
       <div class="code-wrapper">
@@ -366,6 +396,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Switch to the shell of the installed system.</p>
     </section>
+    
+    <!-- Step 12: Install Requirements -->
     <section id="install-requirements">
       <h2>12. Install Requirements</h2>
       <div class="code-wrapper">
@@ -379,6 +411,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Enable the NetworkManager service.</p>
     </section>
+    
+    <!-- Step 13: Configure Arch System -->
     <section id="configure-arch-system">
       <h2>13. Configure Arch System</h2>
       <div class="code-wrapper">
@@ -452,6 +486,8 @@ mkdir /mnt/home</code></pre>
       </div>
       <p>Uncomment <code>%wheel ALL=(ALL) ALL</code> (optionally add <code>Defaults rootpw</code>).</p>
     </section>
+    
+    <!-- Step 14: Install Bootloader -->
     <section id="install-bootloader">
       <h2>14. Install Bootloader</h2>
       <div class="code-wrapper">
@@ -483,6 +519,8 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>Ensure you specify the correct root partition (e.g., <code>/dev/nvme0n1p3</code>).</p>
     </section>
+    
+    <!-- Step 15: Install a Desktop Environment -->
     <section id="install-desktop-environment">
       <h2>15. Install a Desktop Environment</h2>
       <div class="code-wrapper">
@@ -496,6 +534,8 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>If you prefer another desktop environment (or window manager), the installation steps will differ.</p>
     </section>
+    
+    <!-- Step 16: Install Recommended and Required Software -->
     <section id="install-recommended">
       <h2>16. Install Recommended and Required Software</h2>
       <h3>Required Software</h3>
@@ -525,6 +565,8 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>If SSH is needed, allow it with this command.</p>
     </section>
+    
+    <!-- Step 17: Install NVIDIA Drivers -->
     <section id="install-nvidia-drivers">
       <h2>17. Install NVIDIA Drivers (Required to change the NVIDIA driver later)</h2>
       <div class="code-wrapper">
@@ -562,6 +604,8 @@ Exec=/usr/bin/mkinitcpio -P</code></pre>
       </div>
       <p>This ensures the correct NVIDIA modules are loaded and the <code>mkinitcpio</code> image updates automatically.</p>
     </section>
+    
+    <!-- Step 18: Reboot System -->
     <section id="reboot-system">
       <h2>18. Reboot System</h2>
       <div class="code-wrapper">
@@ -571,6 +615,8 @@ reboot</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 19: Change Keyboard Layout -->
     <section id="change-keyboard-layout">
       <h2>19. Change Keyboard Layout</h2>
       <ul>
@@ -579,6 +625,8 @@ reboot</code></pre>
         <li>Choose your desired layout and remove the others.</li>
       </ul>
     </section>
+    
+    <!-- Step 20: Change Timezone -->
     <section id="change-timezone">
       <h2>20. Change Timezone</h2>
       <div class="code-wrapper">
@@ -587,6 +635,8 @@ reboot</code></pre>
       </div>
       <p>Select your correct timezone.</p>
     </section>
+    
+    <!-- Step 21: Install CachyOS Repos -->
     <section id="install-cachyos-repos">
       <h2>21. Install CachyOS Repos</h2>
       <div class="code-wrapper">
@@ -598,6 +648,8 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 22: Install yay and paru -->
     <section id="install-yay-paru">
       <h2>22. Install yay and paru</h2>
       <div class="code-wrapper">
@@ -609,6 +661,8 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 23: Install Chaotic-AUR Repos -->
     <section id="install-chaotic-aur">
       <h2>23. Install Chaotic-AUR Repos</h2>
       <div class="code-wrapper">
@@ -641,6 +695,8 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 24: Install CachyOS Kernel Manager & Other Things -->
     <section id="install-cachyos-kernel-manager">
       <h2>24. Install CachyOS Kernel Manager &amp; Other Things</h2>
       <div class="code-wrapper">
@@ -649,6 +705,8 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
       <p><strong>Launch the CachyOS Kernel Manager</strong>: Select "Configure", choose the "RC - Release Candidate" option, then click "Build Kernel". (If you do not have the latest RC kernel (<code>linux-cachyos-rc</code>) or prefer a stable kernel (<code>linux-cachyos</code>), use the appropriate one.) Proceed with the installation.</p>
     </section>
+    
+    <!-- Step 25: Install Open Nvidia Driver (Recommended) -->
     <section id="install-open-nvidia">
       <h2>25. Install Open Nvidia Driver (Recommended)</h2>
       <div class="code-wrapper">
@@ -656,6 +714,8 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 26: Change Bootloader Configuration -->
     <section id="change-bootloaderconfig">
       <h2>26. Change Bootloader Configuration</h2>
       <div class="code-wrapper">
@@ -669,6 +729,8 @@ initrd /initramfs-linux-cachyos.img</code></pre>
       </div>
       <p>Adjust the configuration to boot into the new kernel.</p>
     </section>
+    
+    <!-- Step 27: Patch Pacman -->
     <section id="patch-pacman">
       <h2>27. Patch Pacman</h2>
       <div class="code-wrapper">
@@ -676,6 +738,8 @@ initrd /initramfs-linux-cachyos.img</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
+    
+    <!-- Step 28: Make Your System More Stable -->
     <section id="make-system-stable">
       <h2>28. Make Your System More Stable</h2>
       <div class="code-wrapper">
@@ -693,9 +757,12 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
       </div>
       <p>If something breaks, this will reinstall the CachyOS repos and should fix pacman errors.</p>
     </section>
+    
+    <!-- Optional: Virtualization Tools -->
     <section id="virtualization-tools">
       <h2>Optional: Virtualization Tools</h2>
-      <p>This section includes tools for running virtualized environments.</p>
+      <p>This section includes tools for running virtualized environments. You may install the following as needed:</p>
+      
       <h3>VMware Tools</h3>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S open-vm-tools xf86-video-vmware xf86-input-vmmouse</code></pre>
@@ -706,6 +773,7 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
 sudo systemctl start vmtoolsd</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
+      
       <h3>Spice Tools (for KVM)</h3>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S spice-vdagent</code></pre>
@@ -716,6 +784,7 @@ sudo systemctl start vmtoolsd</code></pre>
 sudo systemctl start spice-vagentd</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
+      
       <h3>VirtualBox Tools</h3>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S virtualbox virtualbox-host-modules-arch</code></pre>
@@ -726,17 +795,24 @@ sudo systemctl start spice-vagentd</code></pre>
         <pre><code>sudo modprobe vboxdrv</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
+      
     </section>
+    
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Arch Linux Installation Guide</p>
     </footer>
   </div>
+  
+  <!-- JavaScript: Copy Button Functionality -->
   <script>
     function copyCode(btn) {
       const codeText = btn.previousElementSibling.innerText;
       navigator.clipboard.writeText(codeText).then(() => {
         btn.innerText = "Copied!";
-        setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+        setTimeout(() => {
+          btn.innerText = "Copy";
+        }, 2000);
       });
     }
   </script>
