@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arch Linux Installation Guide</title>
   <style>
-    /* Midnight Theme & Centered Container */
+    /* Midnight Theme in Dark Blue & Centered Container, moderne, runde Optik */
     body {
-      background-color: #121212;
+      background-color: #0D1B2A; /* sehr dunkles Blau */
       color: #e0e0e0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 18px; /* größere Schrift */
       margin: 0;
       padding: 20px;
       display: flex;
@@ -18,12 +19,18 @@
     .container {
       max-width: 960px;
       width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    header, footer {
+      text-align: center;
+      padding: 10px 0;
     }
     h1, h2, h3 {
       color: #ffffff;
     }
     a {
-      color: #bb86fc;
+      color: #66A5AD; /* leicht bläulicher Akzent */
       text-decoration: none;
     }
     a:hover {
@@ -37,11 +44,11 @@
     }
     th, td {
       padding: 5px;
-      border: 1px solid #333;
+      border: 1px solid #1B263B; /* dunkler Blauton */
       text-align: left;
     }
     th {
-      background-color: #1e1e1e;
+      background-color: #1B263B;
     }
     /* Codeblock mit Copy-Button */
     .code-wrapper {
@@ -49,10 +56,11 @@
       margin-bottom: 1em;
     }
     pre {
-      background-color: #1e1e1e;
+      background-color: #1B263B; /* dunkles Blau für Code */
       padding: 10px;
       overflow-x: auto;
       margin: 0;
+      border-radius: 5px;
     }
     button.copy-btn {
       position: absolute;
@@ -62,17 +70,13 @@
       font-size: 0.8em;
       cursor: pointer;
       border: none;
-      background-color: #333;
+      background-color: #3E606F;
       color: #e0e0e0;
-      border-radius: 3px;
+      border-radius: 5px;
     }
     /* Section Styling */
     section {
       margin-bottom: 40px;
-    }
-    header, footer {
-      text-align: center;
-      padding: 10px 0;
     }
   </style>
 </head>
@@ -301,8 +305,8 @@
         <li>Create a third partition (20–40GB) and set it as <strong>Linux root</strong>.</li>
         <li>Use the remaining space to create a final partition (default type).</li>
       </ul>
-      <p>*A separate root partition is optional; it adds security but is not mandatory.*</p>
-      <p>*A swap partition is optional; it serves as backup memory when RAM is full.*</p>
+      <p><em>A separate root partition is optional; it adds security but is not mandatory.</em></p>
+      <p><em>A swap partition is optional; it serves as backup memory when RAM is full.</em></p>
     </section>
     
     <!-- 7. Format the Partitions -->
