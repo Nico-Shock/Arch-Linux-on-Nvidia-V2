@@ -89,131 +89,149 @@
     </header>
     
     <!-- Compact table of the 28 steps -->
-    <section id="steps-table">
-      <h2>Installation Steps</h2>
-      <table>
-        <tr>
-          <th>Step</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><a href="#set-up-keyboard-layout">Set up keyboard layout</a></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><a href="#check-if-booted-to-uefi">Check if booted to UEFI</a></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><a href="#check-internet-connection">Check internet connection</a></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td><a href="#connect-to-wifi">Connect to Wifi (if used)</a></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td><a href="#get-disk-information">Get disk information</a></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td><a href="#partition-the-disk">Partition the disk</a></td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td><a href="#format-the-partitions">Format partitions</a></td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td><a href="#mount-partitions">Mount partitions to install Linux base system</a></td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td><a href="#make-downloads-faster">Make downloads faster</a></td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td><a href="#install-linux-base-system">Install the Linux base system</a></td>
-        </tr>
-        <tr>
-          <td>11</td>
-          <td><a href="#access-root-system">Access root system</a></td>
-        </tr>
-        <tr>
-          <td>12</td>
-          <td><a href="#install-requirements">Install requirements</a></td>
-        </tr>
-        <tr>
-          <td>13</td>
-          <td><a href="#configure-arch-system">Configure Arch system</a></td>
-        </tr>
-        <tr>
-          <td>14</td>
-          <td><a href="#install-bootloader">Install bootloader</a></td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td><a href="#install-desktop-environment">Install a desktop environment</a></td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td><a href="#install-recommended">Install recommended and required software</a></td>
-        </tr>
-        <tr>
-          <td>17</td>
-          <td><a href="#install-nvidia-drivers">Install NVIDIA drivers</a></td>
-        </tr>
-        <tr>
-          <td>18</td>
-          <td><a href="#reboot-system">Reboot system</a></td>
-        </tr>
-        <tr>
-          <td>19</td>
-          <td><a href="#change-keyboard-layout">Change keyboard layout</a></td>
-        </tr>
-        <tr>
-          <td>20</td>
-          <td><a href="#change-timezone">Change Timezone</a></td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td><a href="#install-cachyos-repos">Install CachyOS Repos</a></td>
-        </tr>
-        <tr>
-          <td>22</td>
-          <td><a href="#install-yay-paru">Install yay and paru</a></td>
-        </tr>
-        <tr>
-          <td>23</td>
-          <td><a href="#install-chaotic-aur">Install Chaotic-AUR Repos</a></td>
-        </tr>
-        <tr>
-          <td>24</td>
-          <td><a href="#install-cachyos-kernel-manager">Install CachyOS Kernel Manager &amp; other things</a></td>
-        </tr>
-        <tr>
-          <td>25</td>
-          <td><a href="#install-open-nvidia">Install Open Nvidia Driver (recommended)</a></td>
-        </tr>
-        <tr>
-          <td>26</td>
-          <td><a href="#change-bootloaderconfig">Change bootloader configuration</a></td>
-        </tr>
-        <tr>
-          <td>27</td>
-          <td><a href="#patch-pacman">Patch Pacman</a></td>
-        </tr>
-        <tr>
-          <td>28</td>
-          <td><a href="#make-system-stable">Make your system more stable</a></td>
-        </tr>
-        <tr>
-          <td>Optional</td>
-          <td><a href="#virtualization-tools">Virtualization Tools</a></td>
-        </tr>
-      </table>
-    </section>
+  <style>
+  #steps-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #steps-table th, #steps-table td {
+    padding: 5px 10px;
+    text-align: left;
+  }
+  #steps-table a {
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+</style>
+
+<section id="steps-table">
+  <h2>Installation Steps</h2>
+  <table>
+    <tr>
+      <th>Step</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><a href="#set-up-keyboard-layout">Set up keyboard layout</a></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="#check-if-booted-to-uefi">Check if booted to UEFI</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="#check-internet-connection">Check internet connection</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="#connect-to-wifi">Connect to Wifi (if used)</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><a href="#get-disk-information">Get disk information</a></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><a href="#partition-the-disk">Partition the disk</a></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><a href="#format-the-partitions">Format partitions</a></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><a href="#mount-partitions">Mount partitions to install Linux base system</a></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><a href="#make-downloads-faster">Make downloads faster</a></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><a href="#install-linux-base-system">Install the Linux base system</a></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><a href="#access-root-system">Access root system</a></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><a href="#install-requirements">Install requirements</a></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><a href="#configure-arch-system">Configure Arch system</a></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><a href="#install-bootloader">Install bootloader</a></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><a href="#install-desktop-environment">Install a desktop environment</a></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td><a href="#install-recommended">Install recommended and required software</a></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td><a href="#install-nvidia-drivers">Install NVIDIA drivers</a></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td><a href="#reboot-system">Reboot system</a></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td><a href="#change-keyboard-layout">Change keyboard layout</a></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td><a href="#change-timezone">Change Timezone</a></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td><a href="#install-cachyos-repos">Install CachyOS Repos</a></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td><a href="#install-yay-paru">Install yay and paru</a></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td><a href="#install-chaotic-aur">Install Chaotic-AUR Repos</a></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td><a href="#install-cachyos-kernel-manager">Install CachyOS Kernel Manager &amp; other things</a></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td><a href="#install-open-nvidia">Install Open Nvidia Driver (recommended)</a></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td><a href="#change-bootloaderconfig">Change bootloader configuration</a></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td><a href="#patch-pacman">Patch Pacman</a></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td><a href="#make-system-stable">Make your system more stable</a></td>
+    </tr>
+    <tr>
+      <td>Optional</td>
+      <td><a href="#virtualization-tools">Virtualization Tools</a></td>
+    </tr>
+  </table>
+</section>
     
     <!-- Step 1: Set up keyboard layout -->
     <section id="set-up-keyboard-layout">
