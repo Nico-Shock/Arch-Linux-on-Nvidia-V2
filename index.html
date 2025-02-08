@@ -556,10 +556,10 @@ initrd /initramfs-linux.img</code></pre>
       </div>
       <p>You may replace <strong>Arch Linux</strong> with your chosen title in the bootloader menu.</p>
       <div class="code-wrapper">
-        <pre><code>echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p3) rw" >> /boot/loader/entries/arch.conf</code></pre>
+        <pre><code>echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p2) rw" >> /boot/loader/entries/arch.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Make sure to specify the correct disk (e.g. <code>/dev/nvme0n1p3</code>).</p>
+      <p>Make sure to specify the correct disk (e.g. <code>/dev/nvme0n1p2</code>).</p>
     </section>
     
     <!-- 16. Install a Desktop Environment -->
