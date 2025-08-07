@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arch Linux Gaming Ready Installation Guide</title>
+  <title>Arch Linux Installation Guide on Nvidia V2</title>
   <style>
-    /* Fluent Midnight Theme & Centered Container, modern und abgerundet */
     body {
       background-color: #121212;
       color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 17px; /* Basic Font Size */
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
       margin: 0;
       padding: 20px;
       display: flex;
@@ -36,11 +36,8 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Externe Links im neuen Tab öffnen */
     a[target="_blank"] {
-      /* Attribute bleibt erhalten */
     }
-    /* Compact Table */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -54,9 +51,10 @@
     th {
       background-color: #1e1e1e;
     }
-    /* Code block with copy button */
     .code-wrapper {
-      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
       margin-bottom: 1em;
     }
     pre {
@@ -65,22 +63,39 @@
       overflow-x: auto;
       margin: 0;
       border-radius: 5px;
+      flex: 1;
     }
     button.copy-btn {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 3px 7px;
+      padding: 8px 12px;
       font-size: 0.8em;
       cursor: pointer;
       border: none;
       background-color: #333;
       color: #e0e0e0;
       border-radius: 5px;
+      white-space: nowrap;
+      min-width: 60px;
+      flex-shrink: 0;
+      margin-top: 5px;
     }
-    /* Section styling */
     section {
       margin-bottom: 40px;
+    }
+    .highlight {
+      color: #7c3aed;
+      font-weight: 600;
+    }
+    .command-target {
+      color: #06b6d4;
+      font-weight: 600;
+    }
+    .optional {
+      color: #10b981;
+      font-style: italic;
+    }
+    .not-recommended {
+      color: #f44336;
+      font-style: italic;
     }
   </style>
 </head>
@@ -88,8 +103,9 @@
   <div class="container">
     <!-- Header -->
     <header>
-      <h1>Arch Linux Installation Guide</h1>
+      <h1>Arch Linux Installation Guide on Nvidia V2</h1>
       <p><em>Please read and understand everything shown carefully before starting.</em></p>
+      <p>For the official installation guide, visit the <a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank">Arch Wiki Installation Guide</a>.</p>
     </header>
     
     <!-- Requirements Section -->
@@ -168,7 +184,7 @@
         </tr>
         <tr>
           <td><strong>11</strong></td>
-          <td><a href="#setup-swapfile">Setup swapfile</a></td>
+          <td><a href="#setup-swapfile">Setup swapfile (optional)</a></td>
         </tr>
         <tr>
           <td><strong>12</strong></td>
@@ -196,7 +212,7 @@
         </tr>
         <tr>
           <td><strong>18</strong></td>
-          <td><a href="#install-nvidia-drivers-required-to-change-the-nvidia-driver-later">Install NVIDIA Drivers (Required to change the NVIDIA driver later)</a></td>
+          <td><a href="#install-nvidia-drivers-required-to-change-the-nvidia-driver-later">Install Nvidia Drivers (Required to change the Nvidia driver later)</a></td>
         </tr>
         <tr>
           <td><strong>19</strong></td>
@@ -208,11 +224,11 @@
         </tr>
         <tr>
           <td><strong>21</strong></td>
-          <td><a href="#change-timezone">Change Timezone</a></td>
+          <td><a href="#change-timezone">Change Timezone (optional)</a></td>
         </tr>
         <tr>
           <td><strong>22</strong></td>
-          <td><a href="#settings-needed-to-install-the-open-nvidia-drivers-from-cachyos">Settings needed to Install the Open NVIDIA Drivers from CachyOS</a></td>
+          <td><a href="#settings-needed-to-install-the-open-nvidia-drivers-from-cachyos">Settings needed to Install the Open Nvidia Drivers from CachyOS</a></td>
         </tr>
         <tr>
           <td><strong>23</strong></td>
@@ -228,26 +244,34 @@
         </tr>
         <tr>
           <td><strong>26</strong></td>
-          <td><a href="#install-cachyos-kernel-manager--other-things">Install CachyOS Kernel Manager &amp; Other Things</a></td>
+          <td><a href="#install-cachyos-kernel-manager">Install CachyOS Kernel Manager</a></td>
         </tr>
         <tr>
           <td><strong>27</strong></td>
-          <td><a href="#install-open-nvidia-driver-recommended">Install Open NVIDIA Driver (Recommended)</a></td>
+          <td><a href="#install-cachyos-gaming-meta">Install CachyOS Gaming Meta</a></td>
         </tr>
         <tr>
           <td><strong>28</strong></td>
-          <td><a href="#change-bootloaderconfig">Change Bootloaderconfig</a></td>
+          <td><a href="#install-cachyos-settings">Install CachyOS Settings</a></td>
         </tr>
         <tr>
           <td><strong>29</strong></td>
-          <td><a href="#patch-pacman">Patch Pacman</a></td>
+          <td><a href="#install-open-nvidia-driver-recommended">Install Open Nvidia Driver (Optional)</a></td>
         </tr>
         <tr>
           <td><strong>30</strong></td>
-          <td><a href="#make-your-system-more-stable">Make Your System More Stable</a></td>
+          <td><a href="#change-bootloaderconfig">Change Bootloaderconfig</a></td>
         </tr>
         <tr>
           <td><strong>31</strong></td>
+          <td><a href="#patch-pacman">Patch Pacman</a></td>
+        </tr>
+        <tr>
+          <td><strong>32</strong></td>
+          <td><a href="#final-update">Final Update</a></td>
+        </tr>
+        <tr>
+          <td><strong>33</strong></td>
           <td><a href="#virtualization-tools">Virtualization Tools</a></td>
         </tr>
       </table>
@@ -265,7 +289,7 @@
         <pre><code>loadkeys de</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Load the selected keyboard layout (default is US).</p>
+      <p>Load the selected keyboard layout (default is US). Replace <span class="command-target">"de"</span> with your desired layout.</p>
     </section>
     
     <!-- 2. Check if Booted to UEFI -->
@@ -275,7 +299,7 @@
         <pre><code>efivar -l</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>If lots of unknown text appears on your screen that you don’t understand, it means you booted into UEFI mode.</p>
+      <p>If lots of unknown text appears on your screen that you don't understand, it means you booted into UEFI mode.</p>
     </section>
     
     <!-- 3. Check Internet Connection -->
@@ -285,7 +309,7 @@
         <pre><code>ping archlinux.org</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>This will ping a website and show an output in bytes to check if you’re connected to the internet.</p>
+      <p>This will ping a website and show an output in bytes to check if you're connected to the internet.</p>
     </section>
     
     <!-- 4. Connect to Wifi (if used) -->
@@ -300,17 +324,17 @@
         <pre><code>station device scan</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Replace <code>device</code> with your wifi adapter name.</p>
+      <p>Replace <span class="command-target">"device"</span> with your wifi adapter name.</p>
       <div class="code-wrapper">
         <pre><code>station device get-networks</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Replace <code>device</code> again with your WiFi adapter name and list the available networks.</p>
+      <p>Replace <span class="command-target">"device"</span> again with your WiFi adapter name and list the available networks.</p>
       <div class="code-wrapper">
         <pre><code>station device connect Wifi-Name</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Replace <code>Wifi-Name</code> with your real wifi name and enter the password.</p>
+      <p>Replace <span class="command-target">"Wifi-Name"</span> with your real wifi name and enter the password.</p>
     </section>
     
     <!-- 5. Get Disk Information -->
@@ -330,11 +354,11 @@
         <pre><code>cfdisk /dev/nvme0n1</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>This will use the <code>cfdisk</code> tool for easier partitioning of your disk.</p>
+      <p>This will use the <span class="highlight">cfdisk</span> tool for easier partitioning of your disk.</p>
       <h3>Disk Partitioning:</h3>
       <ul>
-        <li>Select <strong>gpt</strong>.</li>
-        <li>Create a new partition with <strong>2048M</strong> size and set the type to <strong>EFI System</strong>. If you are using BIOS mode (legacy csm mode) you need to set this option to BIOS boot.</li>
+        <li>Select <span class="highlight">gpt</span>.</li>
+        <li>Create a new partition with <span class="highlight">2048M</span> size and set the type to <span class="highlight">EFI System</span>. If you are using BIOS mode (legacy csm mode) you need to set this option to <span class="highlight">BIOS boot</span>.</li>
         <li>Use the remaining available space to create a final partition, leaving the type as default.</li>
       </ul>
     </section>
@@ -346,12 +370,12 @@
         <pre><code>mkfs.fat -F32 /dev/nvme0n1p1</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Format the EFI/Boot partition to FAT32.</p>
+      <p>Format the EFI/Boot partition to <span class="highlight">FAT32</span>.</p>
       <div class="code-wrapper">
         <pre><code>mkfs.ext4 /dev/nvme0n1p2</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Format your Linux filesystem partition to the Linux ext4 file system.</p>
+      <p>Format your Linux filesystem partition to the Linux <span class="highlight">ext4</span> file system.</p>
     </section>
     
     <!-- 8. Mount the Partitions to Install Linux Base System -->
@@ -361,7 +385,7 @@
         <pre><code>mount /dev/nvme0n1p2 /mnt</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Mount your Linux filesystem partition to <code>/mnt</code>.</p>
+      <p>Mount your Linux filesystem partition to <span class="command-target">"/mnt"</span>.</p>
       <div class="code-wrapper">
         <pre><code>mkdir /mnt/boot</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -371,7 +395,7 @@
         <pre><code>mount /dev/nvme0n1p1 /mnt/boot</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Mount the EFI/Boot partition to <code>/boot</code>.</p>
+      <p>Mount the EFI/Boot partition to <span class="command-target">"/boot"</span>.</p>
     </section>
     
     <!-- 9. Make downloads faster -->
@@ -381,7 +405,7 @@
         <pre><code>nano /etc/pacman.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Enable parallel downloads by removing the <code>#</code> from the respective line. (If you are unsure about the config, leave it at 5.)</p>
+      <p>Enable parallel downloads by removing the <span class="highlight">#</span> from the respective line. (If you are unsure about the config, leave it at 5.)</p>
     </section>
     
     <!-- 10. Install the Linux Base System -->
@@ -396,12 +420,12 @@
         <pre><code>genfstab -U -p /mnt >> /mnt/etc/fstab</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Generate an <code>fstab</code> file.</p>
+      <p>Generate an <span class="highlight">fstab</span> file.</p>
     </section>
     
     <!-- 11. Setup swapfile -->
     <section id="setup-swapfile">
-      <h2>11. Setup swapfile</h2>
+      <h2>11. Setup swapfile <span class="optional">(optional)</span></h2>
       <div class="code-wrapper">
         <pre><code>fallocate -l 4G /mnt/swapfile</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -426,7 +450,7 @@
         <pre><code>nano /mnt/etc/fstab</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Add <code>/swapfile none swap defaults 0 0</code> into that config – you can optionally add a comment (e.g. <code># swapfile</code>) on the line above.</p>
+      <p>Add <span class="command-target">"/swapfile none swap defaults 0 0"</span> into that config – you can optionally add a comment (e.g. <span class="command-target">"# swapfile"</span>) on the line above.</p>
     </section>
     
     <!-- 12. Access the Root System -->
@@ -446,12 +470,13 @@
         <pre><code>pacman -S networkmanager nano</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Install <code>NetworkManager</code> and <code>nano</code>.</p>
+      <p>Install <span class="highlight">NetworkManager</span> and <span class="highlight">nano</span>.</p>
+      <p>You can also install <span class="highlight">vim</span> instead of nano if you prefer it.</p>
       <div class="code-wrapper">
         <pre><code>systemctl enable NetworkManager</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Enable the <code>NetworkManager</code> service.</p>
+      <p>Enable the <span class="highlight">NetworkManager</span> service.</p>
     </section>
     
     <!-- 14. Configure Arch System -->
@@ -461,7 +486,7 @@
         <pre><code>nano /etc/locale.gen</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Find your language (e.g., <code>de_DE</code>), uncomment it, and save changes.</p>
+      <p>Find your language (e.g., <span class="command-target">"de_DE"</span>), uncomment it, and save changes.</p>
       <div class="code-wrapper">
         <pre><code>locale-gen</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -480,12 +505,12 @@
         <pre><code>echo iusearchbtw >> /etc/hostname</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Replace <code>iusearchbtw</code> with your preferred hostname.</p>
+      <p>Replace <span class="command-target">"iusearchbtw"</span> with your preferred hostname.</p>
       <div class="code-wrapper">
         <pre><code>ln -sf /usr/share/zoneinfo/</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Navigate to your timezone directory (e.g., <code>Europe/Berlin</code>) and link it:</p>
+      <p>Navigate to your timezone directory (e.g., <span class="command-target">"Europe/Berlin"</span>) and link it:</p>
       <div class="code-wrapper">
         <pre><code>ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -499,10 +524,14 @@
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
       <div class="code-wrapper">
+        <pre><code>sudo systemctl enable systemd-timesyncd</code></pre>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      </div>
+      <div class="code-wrapper">
         <pre><code>nano /etc/pacman.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>- Uncomment <code>[multilib]</code> (not <code>multilib-testing</code>) and enable parallel downloads (change the number up to your internet’s capability, maximum is 20).</p>
+      <p>- Uncomment <span class="highlight">[multilib]</span> (not <span class="highlight">multilib-testing</span>) and enable parallel downloads (change the number up to your internet's capability, maximum is 20).</p>
       <div class="code-wrapper">
         <pre><code>pacman -Sy</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -516,7 +545,7 @@
         <pre><code>useradd -m -G wheel -s /bin/bash &lt;username&gt;</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Replace <code>&lt;username&gt;</code> with your desired username.</p>
+      <p>Replace <span class="command-target">"&lt;username&gt;"</span> with your desired username.</p>
       <div class="code-wrapper">
         <pre><code>passwd &lt;username&gt;</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -526,7 +555,7 @@
         <pre><code>nano /etc/sudoers</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Uncomment <code>%wheel ALL=(ALL) ALL</code>. (Optionally add <code>Defaults rootpw</code> to require the root password for sudo.)</p>
+      <p>Uncomment <span class="command-target">"%wheel ALL=(ALL) ALL"</span>. (Optionally add <span class="command-target">"Defaults rootpw"</span> to require the root password for sudo, but this is not recommended for security reasons.)</p>
     </section>
     
     <!-- 15. Install Bootloader -->
@@ -551,15 +580,15 @@ arch-chroot /mnt</code></pre>
       <div class="code-wrapper">
         <pre><code>title Arch Linux
 linux /vmlinuz-linux
-initrd /initramfs-linux.img</code></pre>
+initrd /initramfs-linux-linux.img</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>You may replace <strong>Arch Linux</strong> with your chosen title in the bootloader menu.</p>
+      <p>You may replace <span class="highlight">Arch Linux</span> with your chosen title in the bootloader menu.</p>
       <div class="code-wrapper">
         <pre><code>echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n1p2) rw" >> /boot/loader/entries/arch.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Make sure to specify the correct disk (e.g. <code>/dev/nvme0n1p2</code>).</p>
+      <p>Make sure to specify the correct disk (e.g. <span class="command-target">"/dev/nvme0n1p2"</span>).</p>
     </section>
     
     <!-- 16. Install a Desktop Environment -->
@@ -569,7 +598,7 @@ initrd /initramfs-linux.img</code></pre>
         <pre><code>pacman -S gnome-shell gnome-terminal gnome-control-center gnome-software gnome-menus gnome-shell-extensions gnome-system-monitor mutter gdm</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>You can also install <code>gnome</code> for a complete setup. The example above is for a minimal installation to avoid bloatware.</p>
+      <p>You can also install <span class="highlight">gnome</span> for a complete setup. The example above is for a minimal installation to avoid bloatware.</p>
       <div class="code-wrapper">
         <pre><code>systemctl enable gdm</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -582,35 +611,29 @@ initrd /initramfs-linux.img</code></pre>
       <h2>17. Install Recommended and Required Stuff</h2>
       <h3>Required Stuff</h3>
       <div class="code-wrapper">
-        <pre><code>pacman -S flatpak git wget gedit thermald dolphin gnome-tweaks</code></pre>
+        <pre><code>pacman -S flatpak git wget gedit thermald gnome-text-editor gnome-font-viewer dolphin gnome-tweaks</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Only install <code>dolphin</code> if you are using KDE Plasma. And only install <code>gnome-tweaks</code> on Gnome.</p>
+      <p>Only install <span class="highlight">dolphin</span> if you are using KDE Plasma. And only install <span class="highlight">gnome-tweaks</span> on Gnome.</p>
       <h3>Recommended Stuff</h3>
       <div class="code-wrapper">
-        <pre><code>pacman -S ufw fzf python python-pip bluez blueman bluez-utils zram-generator fastfetch preload</code></pre>
+        <pre><code>pacman -S ufw fzf python python-pip bluez blueman bluez-utils zram-generator fastfetch</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
       <div class="code-wrapper">
-        <pre><code>systemctl enable bluetooth ufw preload</code></pre>
+        <pre><code>systemctl enable bluetooth ufw</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>You can only install <code>preload</code> after installing the Chaotic-AUR-Repos.</p>
       <div class="code-wrapper">
         <pre><code>ufw default deny</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
       <p>This will load default deny ufw settings.</p>
-      <div class="code-wrapper">
-        <pre><code>ufw allow ssh</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <p>If you need ssh, allow it with this command.</p>
     </section>
     
     <!-- 18. Install NVIDIA Drivers (Required to change the NVIDIA driver later) -->
     <section id="install-nvidia-drivers-required-to-change-the-nvidia-driver-later">
-      <h2>18. Install NVIDIA Drivers (Required to change the NVIDIA driver later)</h2>
+      <h2>18. Install Nvidia Drivers (Required to change the Nvidia driver later)</h2>
       <div class="code-wrapper">
         <pre><code>pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-libglvnd lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -623,7 +646,7 @@ initrd /initramfs-linux.img</code></pre>
         <pre><code>nano /etc/mkinitcpio.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Add the following to <code>MODULES=()</code>: <code>nvidia nvidia_modeset nvidia_uvm nvidia_drm</code></p>
+      <p>Add the following to <span class="command-target">"MODULES=()"</span>: <span class="command-target">"nvidia nvidia_modeset nvidia_uvm nvidia_drm"</span></p>
       <div class="code-wrapper">
         <pre><code>mkdir /etc/pacman.d/hooks
 nano /etc/pacman.d/hooks/nvidia.hook</code></pre>
@@ -644,7 +667,7 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -P</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>This ensures the correct NVIDIA modules are loaded and that the <code>mkinitcpio</code> image updates automatically.</p>
+      <p>This ensures the correct Nvidia modules are loaded and that the <span class="highlight">mkinitcpio</span> image updates automatically.</p>
     </section>
     
     <!-- 19. Reboot System -->
@@ -663,29 +686,29 @@ reboot</code></pre>
       <h2>20. Change Keyboard Layout</h2>
       <ul>
         <li>Rightclick on your desktop and go to settings.</li>
-        <li>Then go to "Keyboard" and select "Add Keyboard Layout."</li>
+        <li>Then go to <span class="highlight">"Keyboard"</span> and select <span class="highlight">"Add Keyboard Layout."</span></li>
         <li>Choose your desired layout and delete the other layouts.</li>
       </ul>
     </section>
     
     <!-- 21. Change Timezone -->
     <section id="change-timezone">
-      <h2>21. Change Timezone</h2>
+      <h2>21. Change Timezone <span class="optional">(optional)</span></h2>
       <div class="code-wrapper">
         <pre><code>sudo timedatectl set-timezone Europe/Berlin</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Select your right Timezone.</p>
+      <p>If your timezone is not loaded correctly, run this command.</p>
     </section>
     
     <!-- 22. Settings needed to Install the Open NVIDIA Drivers from CachyOS -->
     <section id="settings-needed-to-install-the-open-nvidia-drivers-from-cachyos">
-      <h2>22. Settings needed to Install the Open NVIDIA Drivers from CachyOS</h2>
+      <h2>22. Settings needed to Install the Open Nvidia Drivers from CachyOS</h2>
       <div class="code-wrapper">
         <pre><code>sudo nano /etc/mkinitcpio.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Remove from <code>MODULES=()</code>: <code>nvidia nvidia_modeset nvidia_uvm nvidia_drm</code></p>
+      <p>Remove from <span class="command-target">"MODULES=()"</span>: <span class="command-target">"nvidia nvidia_modeset nvidia_uvm nvidia_drm"</span></p>
     </section>
     
     <!-- 23. Install CachyOS Repos -->
@@ -705,11 +728,7 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
     <section id="install-yay-and-paru">
       <h2>24. Install yay and paru</h2>
       <div class="code-wrapper">
-        <pre><code>sudo pacman -S yay</code></pre>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-      </div>
-      <div class="code-wrapper">
-        <pre><code>yay -S paru</code></pre>
+        <pre><code>sudo pacman -S yay paru</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
@@ -736,40 +755,59 @@ pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.
         <pre><code>sudo gedit /etc/pacman.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>Cut all the <code>cachyos</code> repos (from line 77 to line 87) to the end of the config. Remove the last 5 lines and replace them with the <code>cachyos</code> repos. Then add:</p>
+      <p>You can delete the last 5 lines in the pacman.conf and replace them with all cachyos repos. Then add:</p>
       <div class="code-wrapper">
         <pre><code>[chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
+      <p>After that, copy all these repos to the very first line at the top.</p>
       <div class="code-wrapper">
         <pre><code>sudo pacman -Sy</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
     
-    <!-- 26. Install CachyOS Kernel Manager & Other Things -->
-    <section id="install-cachyos-kernel-manager--other-things">
-      <h2>26. Install CachyOS Kernel Manager &amp; Other Things</h2>
+    <!-- 26. Install CachyOS Kernel Manager -->
+    <section id="install-cachyos-kernel-manager">
+      <h2>26. Install CachyOS Kernel Manager</h2>
       <div class="code-wrapper">
-        <pre><code>sudo pacman -S cachyos-kernel-manager cachyos-gaming-meta cachyos-settings</code></pre>
+        <pre><code>sudo pacman -S cachyos-kernel-manager</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p><strong>Launch the CachyOS Kernel Manager</strong>: Select "Configure" and under "Options," select the "RC - Release Candidate," then click on "Build Kernel." (Only if you do not have the latest RC kernel <code>linux-cachyos-rc</code> or if you prefer to use a stable kernel (<code>linux-cachyos</code>) with lower performance.) Proceed with the installation.</p>
+      <p><span class="highlight">Launch the CachyOS Kernel Manager</span>: Select the kernel you want to install. Recommended is the <span class="command-target">linux-cachyos</span> one for better performance. In cost of stability, use the <span class="command-target">linux-cachyos-rc</span> one.</p>
+    </section>
+
+    <!-- 27. Install CachyOS Gaming Meta -->
+    <section id="install-cachyos-gaming-meta">
+      <h2>27. Install CachyOS Gaming Meta</h2>
+      <div class="code-wrapper">
+        <pre><code>sudo pacman -S cachyos-gaming-meta</code></pre>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      </div>
+    </section>
+
+    <!-- 28. Install CachyOS Settings -->
+    <section id="install-cachyos-settings">
+      <h2>28. Install CachyOS Settings</h2>
+      <div class="code-wrapper">
+        <pre><code>sudo pacman -S cachyos-settings</code></pre>
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      </div>
     </section>
     
-    <!-- 27. Install Open NVIDIA Driver (Recommended) -->
+    <!-- 29. Install Open NVIDIA Driver (Recommended) -->
     <section id="install-open-nvidia-driver-recommended">
-      <h2>27. Install Open NVIDIA Driver (Recommended)</h2>
+      <h2>29. Install Open Nvidia Driver <span class="optional">(Optional)</span></h2>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S linux-cachyos-nvidia-open</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
     
-    <!-- 28. Change Bootloaderconfig -->
+    <!-- 30. Change Bootloaderconfig -->
     <section id="change-bootloaderconfig">
-      <h2>28. Change Bootloaderconfig</h2>
+      <h2>30. Change Bootloaderconfig</h2>
       <div class="code-wrapper">
         <pre><code>sudo nano /boot/loader/entries/arch.conf</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -782,23 +820,23 @@ initrd /initramfs-linux-cachyos.img</code></pre>
       <p>Change the lines in the config to match and boot into the new kernel you installed.</p>
     </section>
     
-    <!-- 29. Patch Pacman -->
+    <!-- 31. Patch Pacman -->
     <section id="patch-pacman">
-      <h2>29. Patch Pacman</h2>
+      <h2>31. Patch Pacman</h2>
       <div class="code-wrapper">
         <pre><code>sudo pacman -S pacman</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
     </section>
     
-    <!-- 30. Make Your System More Stable -->
-    <section id="make-your-system-more-stable">
-      <h2>30. Make Your System More Stable</h2>
+    <!-- 32. Final Update -->
+    <section id="final-update">
+      <h2>32. Final Update</h2>
       <div class="code-wrapper">
         <pre><code>sudo pacman -Syuu</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p><strong>Not really recommended:</strong> If you have problems or annoying outputs every time you use the pacman command, you can try disabling the <code>core</code> repo in <code>/etc/pacman.conf</code> by commenting it out with a <code>#</code>.</p>
+      <p><span class="optional">Optional:</span> If you have problems or annoying outputs every time you use the pacman command, try reinstalling cachyos repos.</p>
       <div class="code-wrapper">
         <pre><code>wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
@@ -807,12 +845,11 @@ cd ..
 sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
       </div>
-      <p>If something breaks, this will reinstall the CachyOS repos and should fix all pacman errors.</p>
     </section>
     
-    <!-- 31. Virtualization Tools (wiederhergestellter Schritt) -->
+    <!-- 33. Virtualization Tools -->
     <section id="virtualization-tools">
-      <h2>31. Virtualization Tools</h2>
+      <h2>33. Virtualization Tools</h2>
       <p>If you are running the system in a VM, it is recommended to install these things for your VM software:</p>
       <h3>VMware Tools</h3>
       <div class="code-wrapper">
