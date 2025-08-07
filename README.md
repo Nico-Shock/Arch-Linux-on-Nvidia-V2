@@ -1,4 +1,4 @@
-## Here you go to the website: [:)](https://nico-shock.github.io/Arch-Linux-on-Nvidia/)
+## Here you can go to the website: [:)](https://nico-shock.github.io/Arch-Linux-on-Nvidia/)
 
 ### **Make sure this is only indeed for an info dokumentation list not a guide or something really**
 
