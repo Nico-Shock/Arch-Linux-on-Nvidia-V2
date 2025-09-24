@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,8 +36,6 @@
     a:hover {
       text-decoration: underline;
     }
-    a[target="_blank"] {
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -53,12 +51,12 @@
     }
     .code-wrapper {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 15px;
       margin-bottom: 1em;
     }
     pre {
-      background-color: #1e1e1e;
+      background-color: #212124;
       padding: 10px;
       overflow-x: auto;
       margin: 0;
@@ -66,7 +64,6 @@
       flex: 1;
     }
     button.copy-btn {
-      padding: 8px 12px;
       font-size: 0.8em;
       cursor: pointer;
       border: none;
@@ -74,9 +71,16 @@
       color: #e0e0e0;
       border-radius: 5px;
       white-space: nowrap;
-      min-width: 60px;
+      width: 80px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-shrink: 0;
-      margin-top: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button.copy-btn:hover {
+      background-color: #4a4a4f;
     }
     section {
       margin-bottom: 40px;
@@ -101,14 +105,12 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <header>
       <h1>Arch Linux Installation Guide on Nvidia V2</h1>
       <p><em>Please read and understand everything shown carefully before starting.</em></p>
       <p>For the official installation guide, visit the <a href="https://wiki.archlinux.org/title/Installation_guide" target="_blank">Arch Wiki Installation Guide</a>.</p>
     </header>
     
-    <!-- Requirements Section -->
     <section id="requirements">
       <h2>Requirements</h2>
       <ol>
@@ -134,7 +136,6 @@
       </ol>
     </section>
     
-    <!-- Installation Steps Table -->
     <section id="steps-table">
       <h2>Installation Steps</h2>
       <table>
@@ -277,7 +278,6 @@
       </table>
     </section>
     
-    <!-- 1. Set Up Keyboard Layout -->
     <section id="set-up-keyboard-layout">
       <h2>1. Set Up Keyboard Layout</h2>
       <div class="code-wrapper">
@@ -292,7 +292,6 @@
       <p>Load the selected keyboard layout (default is US). Replace <span class="command-target">"de"</span> with your desired layout.</p>
     </section>
     
-    <!-- 2. Check if Booted to UEFI -->
     <section id="check-if-booted-to-uefi">
       <h2>2. Check if Booted to UEFI</h2>
       <div class="code-wrapper">
@@ -302,7 +301,6 @@
       <p>If lots of unknown text appears on your screen that you don't understand, it means you booted into UEFI mode.</p>
     </section>
     
-    <!-- 3. Check Internet Connection -->
     <section id="check-internet-connection">
       <h2>3. Check Internet Connection</h2>
       <div class="code-wrapper">
@@ -312,7 +310,6 @@
       <p>This will ping a website and show an output in bytes to check if you're connected to the internet.</p>
     </section>
     
-    <!-- 4. Connect to Wifi (if used) -->
     <section id="connect-to-wifi-if-used">
       <h2>4. Connect to Wifi (if used)</h2>
       <div class="code-wrapper">
@@ -337,7 +334,6 @@
       <p>Replace <span class="command-target">"Wifi-Name"</span> with your real wifi name and enter the password.</p>
     </section>
     
-    <!-- 5. Get Disk Information -->
     <section id="get-disk-information">
       <h2>5. Get Disk Information</h2>
       <div class="code-wrapper">
@@ -347,7 +343,6 @@
       <p>This will show all information about your installed disks. You can use it anytime after changing your disks to display the updated information.</p>
     </section>
     
-    <!-- 6. Partition the Disk -->
     <section id="partition-the-disk">
       <h2>6. Partition the Disk</h2>
       <div class="code-wrapper">
@@ -363,7 +358,6 @@
       </ul>
     </section>
     
-    <!-- 7. Format the Partitions -->
     <section id="format-the-partitions">
       <h2>7. Format the Partitions</h2>
       <div class="code-wrapper">
@@ -378,7 +372,6 @@
       <p>Format your Linux filesystem partition to the Linux <span class="highlight">ext4</span> file system.</p>
     </section>
     
-    <!-- 8. Mount the Partitions to Install Linux Base System -->
     <section id="mount-the-partitions-to-install-linux-base-system">
       <h2>8. Mount the Partitions to Install Linux Base System</h2>
       <div class="code-wrapper">
@@ -398,7 +391,6 @@
       <p>Mount the EFI/Boot partition to <span class="command-target">"/boot"</span>.</p>
     </section>
     
-    <!-- 9. Make downloads faster -->
     <section id="make-downloads-faster">
       <h2>9. Make downloads faster</h2>
       <div class="code-wrapper">
@@ -408,7 +400,6 @@
       <p>Enable parallel downloads by removing the <span class="highlight">#</span> from the respective line. (If you are unsure about the config, leave it at 5.)</p>
     </section>
     
-    <!-- 10. Install the Linux Base System -->
     <section id="install-linux-base-system">
       <h2>10. Install the Linux Base System</h2>
       <div class="code-wrapper">
@@ -423,7 +414,6 @@
       <p>Generate an <span class="highlight">fstab</span> file.</p>
     </section>
     
-    <!-- 11. Setup swapfile -->
     <section id="setup-swapfile">
       <h2>11. Setup swapfile <span class="optional">(optional)</span></h2>
       <div class="code-wrapper">
@@ -453,7 +443,6 @@
       <p>Add <span class="command-target">"/swapfile none swap defaults 0 0"</span> into that config – you can optionally add a comment (e.g. <span class="command-target">"# swapfile"</span>) on the line above.</p>
     </section>
     
-    <!-- 12. Access the Root System -->
     <section id="access-the-root-system">
       <h2>12. Access the Root System</h2>
       <div class="code-wrapper">
@@ -463,7 +452,6 @@
       <p>Switch to the shell of your installed system.</p>
     </section>
     
-    <!-- 13. Install Requirements -->
     <section id="install-requirements">
       <h2>13. Install Requirements</h2>
       <div class="code-wrapper">
@@ -479,7 +467,6 @@
       <p>Enable the <span class="highlight">NetworkManager</span> service.</p>
     </section>
     
-    <!-- 14. Configure Arch System -->
     <section id="configure-arch-system">
       <h2>14. Configure Arch System</h2>
       <div class="code-wrapper">
@@ -558,7 +545,6 @@
       <p>Uncomment <span class="command-target">"%wheel ALL=(ALL) ALL"</span>. (Optionally add <span class="command-target">"Defaults rootpw"</span> to require the root password for sudo, but this is not recommended for security reasons.)</p>
     </section>
     
-    <!-- 15. Install Bootloader -->
     <section id="install-bootloader">
       <h2>15. Install Bootloader</h2>
       <div class="code-wrapper">
@@ -591,7 +577,6 @@ initrd /initramfs-linux.img</code></pre>
       <p>Make sure to specify the correct disk (e.g. <span class="command-target">"/dev/nvme0n1p2"</span>).</p>
     </section>
     
-    <!-- 16. Install a Desktop Environment -->
     <section id="install-a-desktop-environment">
       <h2>16. Install a Desktop Environment</h2>
       <div class="code-wrapper">
@@ -606,7 +591,6 @@ initrd /initramfs-linux.img</code></pre>
       <p>If you prefer another desktop environment or window manager, the installation steps will different.</p>
     </section>
     
-    <!-- 17. Install Recommended and Required Stuff -->
     <section id="install-recommended-and-required-stuff">
       <h2>17. Install Recommended and Required Stuff</h2>
       <h3>Required Stuff</h3>
@@ -631,7 +615,6 @@ initrd /initramfs-linux.img</code></pre>
       <p>This will load default deny ufw settings.</p>
     </section>
     
-    <!-- 18. Install NVIDIA Drivers -->
     <section id="install-nvidia-drivers">
       <h2>18. Install Nvidia Drivers</h2>
       <div class="code-wrapper">
@@ -670,7 +653,6 @@ Exec=/usr/bin/mkinitcpio -P</code></pre>
       <p>This ensures the correct Nvidia modules are loaded and that the <span class="highlight">mkinitcpio</span> image updates automatically.</p>
     </section>
     
-    <!-- 19. Reboot System -->
     <section id="reboot-system">
       <h2>19. Reboot System</h2>
       <div class="code-wrapper">
@@ -681,7 +663,6 @@ reboot</code></pre>
       </div>
     </section>
     
-    <!-- 20. Change Keyboard Layout -->
     <section id="change-keyboard-layout">
       <h2>20. Change Keyboard Layout</h2>
       <ul>
@@ -691,7 +672,6 @@ reboot</code></pre>
       </ul>
     </section>
     
-    <!-- 21. Change Timezone -->
     <section id="change-timezone">
       <h2>21. Change Timezone <span class="optional">(optional)</span></h2>
       <div class="code-wrapper">
@@ -701,7 +681,6 @@ reboot</code></pre>
       <p>If your timezone is not loaded correctly, run this command.</p>
     </section>
     
-    <!-- 22. Settings needed to Install the Open NVIDIA Drivers from CachyOS -->
     <section id="settings-needed-to-install-the-open-nvidia-drivers-from-cachyos">
       <h2>22. Settings needed to Install the Open Nvidia Drivers from CachyOS</h2>
       <div class="code-wrapper">
@@ -711,7 +690,6 @@ reboot</code></pre>
       <p>Remove from <span class="command-target">"MODULES=()"</span>: <span class="command-target">"nvidia nvidia_modeset nvidia_uvm nvidia_drm"</span></p>
     </section>
     
-    <!-- 23. Install CachyOS Repos -->
     <section id="install-cachyos-repos">
       <h2>23. Install CachyOS Repos</h2>
       <div class="code-wrapper">
@@ -724,7 +702,6 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
       </div>
     </section>
     
-    <!-- 24. Install yay and paru -->
     <section id="install-yay-and-paru">
       <h2>24. Install yay and paru</h2>
       <div class="code-wrapper">
@@ -733,7 +710,6 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
       </div>
     </section>
     
-    <!-- 25. Install Chaotic-AUR Repos -->
     <section id="install-chaotic-aur-repos">
       <h2>25. Install Chaotic-AUR Repos</h2>
       <div class="code-wrapper">
@@ -768,7 +744,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
     </section>
     
-    <!-- 26. Install CachyOS Kernel Manager -->
     <section id="install-cachyos-kernel-manager">
       <h2>26. Install CachyOS Kernel Manager</h2>
       <div class="code-wrapper">
@@ -778,7 +753,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       <p><span class="highlight">Launch the CachyOS Kernel Manager</span>: Select the kernel you want to install. Recommended is the <span class="command-target">linux-cachyos</span> one for better performance. In cost of stability, use the <span class="command-target">linux-cachyos-rc</span> one.</p>
     </section>
 
-    <!-- 27. Install CachyOS Gaming Meta -->
     <section id="install-cachyos-gaming-meta">
       <h2>27. Install CachyOS Gaming Meta</h2>
       <div class="code-wrapper">
@@ -787,7 +761,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
     </section>
 
-    <!-- 28. Install CachyOS Settings -->
     <section id="install-cachyos-settings">
       <h2>28. Install CachyOS Settings</h2>
       <div class="code-wrapper">
@@ -796,7 +769,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
     </section>
     
-    <!-- 29. Install Open NVIDIA Driver (Recommended) -->
     <section id="install-open-nvidia-driver-recommended">
       <h2>29. Install Open Nvidia Driver <span class="optional">(Optional)</span></h2>
       <div class="code-wrapper">
@@ -805,7 +777,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist</code></pre>
       </div>
     </section>
     
-    <!-- 30. Change Bootloaderconfig -->
     <section id="change-bootloaderconfig">
       <h2>30. Change Bootloaderconfig</h2>
       <div class="code-wrapper">
@@ -820,7 +791,6 @@ initrd /initramfs-linux-cachyos.img</code></pre>
       <p>Change the lines in the config to match and boot into the new kernel you installed.</p>
     </section>
     
-    <!-- 31. Patch Pacman -->
     <section id="patch-pacman">
       <h2>31. Patch Pacman</h2>
       <div class="code-wrapper">
@@ -829,7 +799,6 @@ initrd /initramfs-linux-cachyos.img</code></pre>
       </div>
     </section>
     
-    <!-- 32. Final Update -->
     <section id="final-update">
       <h2>32. Final Update</h2>
       <div class="code-wrapper">
@@ -847,7 +816,6 @@ sudo rm -r cachyos-repo.tar.xz cachyos-repo</code></pre>
       </div>
     </section>
     
-    <!-- 33. Virtualization Tools -->
     <section id="virtualization-tools">
       <h2>33. Virtualization Tools</h2>
       <p>If you are running the system in a VM, it is recommended to install these things for your VM software:</p>
@@ -873,13 +841,11 @@ sudo systemctl start spice-vdagentd</code></pre>
       </div>
     </section>
     
-    <!-- Footer -->
     <footer>
       <p>&copy; 2025 Arch Linux Installation Guide by Nico-Shock</p>
     </footer>
   </div>
   
-  <!-- JavaScript: Copy Button Functionality -->
   <script>
     function copyCode(btn) {
       const codeText = btn.previousElementSibling.innerText;
