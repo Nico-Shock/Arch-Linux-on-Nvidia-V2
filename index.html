@@ -182,13 +182,11 @@
       font-style: italic;
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background: #222228; }
     ::-webkit-scrollbar-thumb:hover { background: #9b59f7; }
 
-    /* Nav dots */
     #nav-dots {
       position: fixed;
       left: 16px;
@@ -1061,7 +1059,6 @@ sudo systemctl start spice-vdagentd</code></pre>
   </div>
   
   <script>
-    // Copy button — fixed width, no layout shift
     function copyCode(btn) {
       const codeText = btn.previousElementSibling.innerText;
       navigator.clipboard.writeText(codeText).then(() => {
@@ -1076,7 +1073,6 @@ sudo systemctl start spice-vdagentd</code></pre>
       });
     }
 
-    // Nav dots — build from all sections with an id
     (function() {
       const navDots = document.getElementById('nav-dots');
       const sections = Array.from(document.querySelectorAll('section[id]'));
@@ -1103,7 +1099,6 @@ sudo systemctl start spice-vdagentd</code></pre>
         allDots.push(dot);
       });
 
-      // IntersectionObserver only updates active when NOT triggered by a click
       let scrollLocked = false;
       let scrollEndTimer = null;
       let lockToken = 0;
@@ -1122,7 +1117,6 @@ sudo systemctl start spice-vdagentd</code></pre>
         setActive(targetId);
         clearTimeout(scrollEndTimer);
 
-        // Remove any previous scroll listener by using the token
         function onScroll() {
           if (token !== lockToken) {
             window.removeEventListener('scroll', onScroll);
@@ -1143,7 +1137,6 @@ sudo systemctl start spice-vdagentd</code></pre>
         }, 3000);
       }
 
-      // Back to top button
       window.backToTop = function() {
         const firstSection = sections[0];
         lockUntilScrollEnd(firstSection ? firstSection.id : '');
