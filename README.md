@@ -71,8 +71,8 @@
 
 **Steps 19–21 — New sections added**  
 - Added Step 19: NVIDIA Decoding Support — `libva-nvidia-driver vdpauinfo libva-utils`  
-- Added Step 20: Install Video Player Acceleration Plugins — `ffmpeg gst-plugins-good gst-plugins-bad gst-libav`  
-- Added Step 21: Install Vulkan Libraries — `vulkan-icd-loader lib32-vulkan-icd-loader`  
+- Added Step 20: Install Video Player Acceleration Plugins — `gst-plugins-good gst-plugins-bad gst-libav`  
+- Added Step 21: Install Vulkan Libraries — `lib32-vulkan-icd-loader`  
 - Steps renumbered: all steps after 18 shifted +3; guide now ends at step 34 (was 33)  
 
 **Removed**  
